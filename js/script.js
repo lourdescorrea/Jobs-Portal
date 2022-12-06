@@ -36,3 +36,14 @@ const editJobs = (id) => {
     body: JSON.stringify(saveJobsInfo()),
   }).finally(() => (window.location.href = "index.html"));
 };
+
+// Función que trae la información del formulario
+const saveJobsInfo = () => {
+  return {
+    name: $("#nameJobs").value,
+    description: $("#description").value,
+    category: $("#category").value,
+    location: $("#location").value,
+    seniority: $("#seniority").value,
+  };
+};
