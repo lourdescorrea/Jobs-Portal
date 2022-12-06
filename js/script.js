@@ -16,3 +16,12 @@ const getJob = (id) => {
     .then((data) => viewDetails(data));
 };
 getJob();
+
+///
+const getJobs2 = async (id) => {
+  const response = await fetch(
+    `https://6387ea2bd94a7e50408fb858.mockapi.io/jobs/jobs/${id}`
+  );
+  const jobs = await response.json();
+  return jobs;
+};
