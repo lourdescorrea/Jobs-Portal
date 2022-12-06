@@ -192,3 +192,21 @@ $("#formulario").addEventListener("submit", (e) => {
 // Función para ocultar y mostrar elemntos del html
 const hideElement = (selector) => selector.classList.add("hidden");
 const showElement = (selector) => selector.classList.remove("hidden");
+
+// Evento para volver al inicio desde el nav
+start.addEventListener("click", () => {
+  showElement(hero);
+  showElement(filters);
+  showElement(cardsSecundary);
+  hideElement(formulario);
+  hideElement(container);
+});
+
+// Evento para crear empleo desde el nav
+createJobs.addEventListener("click", () => {
+  hideElement(hero);
+  showElement(formulario);
+  hideElement(container);
+  hideElement(filters);
+  hideElement(cardsSecundary);
+});
