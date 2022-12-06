@@ -25,3 +25,14 @@ const getJobs2 = async (id) => {
   const jobs = await response.json();
   return jobs;
 };
+
+// Envio la info editada a la Api
+const editJobs = (id) => {
+  fetch(`https://6387ea2bd94a7e50408fb858.mockapi.io/jobs/jobs/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "Application/json",
+    },
+    body: JSON.stringify(saveJobsInfo()),
+  }).finally(() => (window.location.href = "index.html"));
+};
