@@ -211,3 +211,7 @@ createJobs.addEventListener("click", () => {
   hideElement(filters);
   hideElement(cardsSecundary);
 });
+
+$("#search").addEventListener("click", () => {
+  filtersJobs();
+});
