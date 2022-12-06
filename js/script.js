@@ -177,3 +177,18 @@ $("#formulario").addEventListener("submit", (e) => {
   const id = $("#submit").getAttribute("data-id");
   editJobs(id);
 });
+
+$("#formulario").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (idEdit) {
+    addJob();
+  } else {
+    const id = $("#submit").getAttribute("data-id");
+    editJobs(id);
+  }
+});
+
+// Función para ocultar y mostrar elemntos del html
+const hideElement = (selector) => selector.classList.add("hidden");
+const showElement = (selector) => selector.classList.remove("hidden");
