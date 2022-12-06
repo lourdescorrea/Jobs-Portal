@@ -212,6 +212,38 @@ createJobs.addEventListener("click", () => {
   hideElement(cardsSecundary);
 });
 
+// filtros
+const filtersJobs = () => {
+  const locationFilters = $("#locationFilters").value;
+
+  const seniorityFilters = $("#seniorityFilters").value;
+
+  const categoryFilters = $("#categoryFilters").value;
+
+  const base_url = `https://6387ea2bd94a7e50408fb858.mockapi.io`;
+  let url = `${base_url}/jobs/jobs`;
+
+  if (locationFilters !== "Opciones") {
+    url += `?location=${locationFilters}`;
+  } else if (seniorityFilters !== "Opciones") {
+    url += `?seniority=${seniorityFilters}`;
+  } else if (categoryFilters !== "Opciones") {
+    url += `?category=${categoryFilters}`;
+  }
+
+  // TODO: LLAMAR A LA API CON URL
+  console.log(url);
+};
+
+//    `https://6387ea2bd94a7e50408fb858.mockapi.io/jobs/jobs/${id}`?=
+
+// const filtersJobjs = () => {
+//   let params = new URLSearchParams({
+
+// };
+
+// console.log(params.toString());
+
 $("#search").addEventListener("click", () => {
   filtersJobs();
 });
