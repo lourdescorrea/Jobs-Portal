@@ -158,3 +158,15 @@ const viewDetails = (jobs) => {
     });
   }
 };
+
+// Función para formulario editar desde card detalles
+const viewForms = (jobs) => {
+  $("#container").innerHTML = "";
+  showElement(formulario);
+
+  $("#nameJobs").value = jobs.name;
+  $("#description").value = jobs.description;
+  $("#location").value = jobs.location;
+  $("#seniority").value = jobs.seniority;
+  $("#category").value = jobs.category;
+};
