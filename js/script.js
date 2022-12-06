@@ -170,3 +170,10 @@ const viewForms = (jobs) => {
   $("#seniority").value = jobs.seniority;
   $("#category").value = jobs.category;
 };
+
+// Evento submit a formulario
+$("#formulario").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const id = $("#submit").getAttribute("data-id");
+  editJobs(id);
+});
