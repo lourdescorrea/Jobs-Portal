@@ -64,3 +64,13 @@ const creatingJobs = () => {
     body: JSON.stringify(saveJobs()),
   }).finally(() => (window.location.href = "index.html"));
 };
+
+const saveJobs = () => {
+  return {
+    name: $("#nameJobs").value,
+    description: $("#description").value,
+    category: $("#category").value,
+    location: $("#location").value,
+    seniority: $("#seniority").value,
+  };
+};
