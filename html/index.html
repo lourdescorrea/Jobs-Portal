@@ -17,13 +17,11 @@
   </head>
   <body class="bg-white">
     <header class="nav completo">
+      <!-- nav bar menu -->
       <nav
         class="text-white lg:h-20 h-20 bg-[#2e3858] flex justify-between items-center drop-shadow-2xl"
       >
-        <a
-          href=""
-          class="flex pl-6 text-5xl hover:text-xl font-medium font-['Sacramento']"
-        >
+        <a href="#" class="flex pl-6 text-5xl font-medium font-['Sacramento']">
           <i class="fa-solid fa-globe"></i>
           Jobs portal
         </a>
@@ -34,9 +32,8 @@
           <li>
             <a
               href="#"
-              name="start"
-              id="start"
-              class="group text-xl hover:text-lg cursor-pointer m-2"
+              id="nav-home"
+              class="group text-xl hover:underline cursor-pointer"
             >
               <i class="fa-solid fa-house-laptop"></i>
               Inicio
@@ -45,9 +42,8 @@
           <li class="ml-5">
             <a
               href="#"
-              name=""
-              id="createJobs"
-              class="group text-xl hover:text-lg cursor-pointer"
+              id="nav-create-job"
+              class="group text-xl hover:underline cursor-pointer"
             >
               <i class="fa-solid fa-briefcase"></i>
               Crear Empleo
@@ -55,13 +51,14 @@
           </li>
         </ul>
       </nav>
-      <!-- section navbarMenu-->
-      <div class="lg:hidden" id="">
+
+      <!-- mobile nav bar menu -->
+      <div class="lg:hidden" id="mobile-nav-bar">
         <ul class="flex flex-col bg-white text-[#212529]">
           <li
             class="px-4 py-2 hover:text-xl font-medium font-['Sacramento'] cursor-pointer"
           >
-            <a href="#" name="" id="" class="">
+            <a href="#" id="nav-home">
               <i class="fa-solid fa-house-laptop"></i>
               Inicio
               <span class="block max-w-0 hover:text-"></span>
@@ -70,7 +67,7 @@
           <li
             class="px-4 py-2 hover:text-xl font-medium font-['Sacramento']cursor-pointer"
           >
-            <a href="#" name="" id="" class="">
+            <a href="#" id="nav-create-job">
               <i class="fa-solid fa-briefcase"></i>
               Crear Empleo
               <span class="block max-w-0"></span>
@@ -80,12 +77,13 @@
       </div>
     </header>
 
+    <!-- section hero -->
     <div
       class="grayscale bg-[url('/assets/photo-work.avif')] bg-no-repeat h-screen bg-cover bg-center flex justify-center items-center"
       id="hero"
     >
       <section
-        class="flex justify-center items-center h-screen backdrop-grayscale-0 bg-white/30 drop-shadow-2xl"
+        class="flex justify-center items-center h-screen backdrop-grayscale-0 bg-black/30 drop-shadow-2xl"
       >
         <div class="flex flex-col items-center p-8">
           <h1 class="text-7xl text-white font-['Sacramento'] font-medium">
@@ -103,88 +101,101 @@
         </div>
       </section>
     </div>
-    <main class="flex flex-col justify-center items-center m-8">
-      <div
-        class="mt-12 p-8 rounded-md mb-24 bg-[#2e3858] w-full h-auto flex flex-col justify-center items-center"
-        id="filters"
+
+    <!-- content -->
+    <main class="flex flex-col justify-center items-center">
+      <!-- section filters -->
+      <section
+        class="mb-24 bg-[#2e3858] w-full h-auto flex flex-col justify-center items-center"
+        id="container-filters"
       >
         <h3 class="font-['Sacramento'] p-4 text-5xl font-medium text-white">
           Mejora tu experiencia
         </h3>
-        <div class="filters flex" id="filters">
+        <div class="filters flex">
           <div class="m-8">
-            <label for="filtersType" class="text-xl font-semibold text-white"
+            <label
+              for="filter-location"
+              class="text-xl font-semibold text-white"
               >Ubicación</label
             >
             <select
               class="p-2 rounded-lg cursor-pointer focus:border-blue-600 focus:outline-none"
-              name="Ubicación"
-              id="locationFilters"
+              name="location"
+              id="filter-location"
             ></select>
           </div>
           <div class="m-8">
-            <label for="" class="font-semibold text-xl font-semibold text-white"
+            <label
+              for="filter-seniority"
+              class="font-semibold text-xl font-semibold text-white"
               >Experiencia</label
             >
             <select
               class="p-2 rounded-lg cursor-pointer focus:border-blue-600 focus:outline-none"
               name="seniority"
-              id="seniorityFilters"
+              id="filter-seniority"
             ></select>
           </div>
           <div class="m-8">
-            <label for="" class="font-semibold text-xl font-semibold text-white"
+            <label
+              for="filter-category"
+              class="font-semibold text-xl font-semibold text-white"
               >Categoria</label
             >
             <select
               class="p-2 rounded-lg cursor-pointer focus:border-blue-600 focus:outline-none"
-              name=""
-              id="categoryFilters"
+              name="category"
+              id="filter-category"
             ></select>
           </div>
           <div class="m-8">
             <button
               class="w-28 mr-2 h-8 text-white text-lg bg-[#4daaf2] drop-shadow-2xl hover:bg-blue-600 hover:text-lg rounded-full m-auto"
-              id="search"
+              id="filter-search"
             >
               Buscar
             </button>
             <button
               class="w-28 h-8 text-white text-lg bg-[#4daaf2] drop-shadow-2xl hover:bg-blue-600 hover:text-lg rounded-full m-auto"
+              id="filter-clear"
             >
               Eliminar
             </button>
           </div>
         </div>
+      </section>
+
+      <!-- loading indicator -->
+      <div
+        id="loading-indicator"
+        class="flex items-center justify-center min-h-screen hidden"
+      >
+        <div
+          style="border-top-color: transparent"
+          class="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"
+        ></div>
       </div>
 
-      <!-- <div id="btnSpin" class="flex items-center justify-center">
-        <div
-          class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
-          role="status"
-        >
-          <span class="visually-hidden"></span>
-        </div>
-      </div> -->
-
-      <div
-        class="flex flex-col lg:grid grid-cols-4 mx-10"
-        id="container-jobs"
-      ></div>
-
-      <!-- Section cards jobs -->
-      <div
-        class="hidden grid gap-6 md:grid-rows-6 md:grid-flow-col md:gap-4"
-        id="container"
-      ></div>
-      <!-- Section cards details -->
-      <div
-        class="hidden mt-24 max-w-xl bg-white rounded-lg border border-gray-400 shadow-md dark:bg-gray-800 dark:border-gray-700"
-        id="details"
-      ></div>
-
-      <!--section delet jobs -->
+      <!-- Section cards -->
       <section
+        class="hidden grid grid-cols-4 gap-4"
+        id="container-list"
+      ></section>
+
+      <!-- Section cards details -->
+      <section
+        class="hidden mt-24 max-w-xl bg-white rounded-lg border border-gray-400 shadow-md dark:bg-gray-800 dark:border-gray-700"
+        id="container-details"
+      >
+        <div style="width: 300px; height: 100px; background-color: red">
+          details
+        </div>
+      </section>
+
+      <!--section delet -->
+      <section
+        id="container-confirm-delete"
         class="hidden lg:max-w-4xl py-3 w-auto bg-red-200 p-4 rounded drop-shadow-2xl"
       >
         <div class="flex justify-center items-center py-5 space-x-2">
@@ -192,154 +203,113 @@
 
           <button
             class="w-28 h-8 my-1 text-white bg-red-600 rounded-full hover:text-lg"
-            type="submit"
-            id="delete"
+            id="confirm-delete"
           >
             Eliminar
           </button>
 
           <button
             class="w-28 h-8 text-white bg-[#4daaf2] rounded-full hover:text-lg"
-            type="submit"
-            id="cancel"
+            id="confirm-cancel"
           >
             Cancelar
           </button>
         </div>
       </section>
 
-      <!-- form edit-->
+      <!-- form add or edit-->
       <section
         class="hidden flex items-center lg:max-w-4xl p-8 max-w-none w-full bg-[#2e3858] rounded drop-shadow-2xl mt-12"
-        id="formulario"
+        id="container-job-form"
       >
-        <form class="w-full" id="form">
+        <form class="w-full" id="job-form">
           <div class="flex flex-col mt-8 p-4">
-            <label for="description" class="mb-1 text-lg font-medium text-white"
-              >Detalle Empleo</label
+            <label
+              for="job-form-field-name"
+              class="mb-1 text-lg font-medium text-white"
+              >Titulo</label
             >
             <input
               type="text"
-              name="nameJobs"
-              id="nameJobs"
+              name="name"
+              id="job-form-field-name"
               class="text-white mb-2 p-2 rounded border-2 cursor-pointer focus:border-blue-600 focus:outline-none border-none backdrop-grayscale-0 bg-white/10"
             />
-            <label for="amount" class="mb-1 text-lg font-medium text-white"
-              >Descripción</label
+
+            <label
+              for="job-form-field-description"
+              class="mb-1 text-lg font-medium text-white"
+              >Descripcion</label
             >
             <textarea
-              id="description"
+              name="description"
+              id="job-form-field-description"
               placeholder="texto"
               class="text-white mb-2 p-2 rounded border-2 cursor-pointer focus:border-blue-600 focus:outline-none border-none backdrop-grayscale-0 bg-white/10"
             ></textarea>
 
-            <p class="mb-1 text-lg font-medium text-white">Etiquetas</p>
-            <label for="location" id="location"></label>
-            <select
-              class="text-white mb-2 p-2 rounded border-2 cursor-pointer focus:border-blue-600 focus:outline-none border-none backdrop-grayscale-0 bg-white/10"
+            <h3 class="my-2 text-2xl text-white">Etiquetas</h3>
+            <span class="w-full p-[0.2px] bg-white lg:w-2/3 mb-4"></span>
+
+            <label
+              for="job-form-field-location"
+              class="mb-1 text-lg font-medium text-white"
+              >Ubicacion</label
+            >
+            <input
+              type="text"
               name="location"
-              id="location"
-            >
-              <option class="text-gray-800" value="">Opciones</option>
-              <option class="text-gray-800" value="">Ámsterdam</option>
-              <option class="text-gray-800" value="">Argentina</option>
-              <option class="text-gray-800" value="">Australia</option>
-              <option class="text-gray-800" value="">Brasil</option>
-              <option class="text-gray-800" value="">Canadá</option>
-              <option class="text-gray-800" value="">Chile</option>
-              <option class="text-gray-800" value="">Estados Unidos</option>
-              <option class="text-gray-800" value="">México</option>
-              <option class="text-gray-800" value="">Perú</option>
-            </select>
-
-            <label for="experience" id="seniority"></label>
-            <select
+              id="job-form-field-location"
               class="text-white mb-2 p-2 rounded border-2 cursor-pointer focus:border-blue-600 focus:outline-none border-none backdrop-grayscale-0 bg-white/10"
-              name="experience"
-              id="seniority"
-            >
-              <option class="text-gray-800" value="">Trainee</option>
-              <option class="text-gray-800" value="">junior</option>
-              <option class="text-gray-800" value="">Semi senior</option>
-              <option class="text-gray-800" value="">Senior</option>
-            </select>
+            />
 
-            <label for="category" id="category"></label>
-            <select
-              class="mb-2 p-2 text-white rounded border-2 cursor-pointer focus:border-blue-600 focus:outline-none border-none backdrop-grayscale-0 bg-white/10"
-              name="category"
-              id="category"
+            <label
+              for="job-form-field-seniority"
+              class="mb-1 text-lg font-medium text-white"
+              >Level</label
             >
-              <option class="text-gray-800" value="">Advertising</option>
-              <option class="text-gray-800" value="">Desing</option>
-              <option class="text-gray-800" value="">Development</option>
-              <option class="text-gray-800" value="">Engineer</option>
-              <option class="text-gray-800" value="">Leader</option>
-              <option class="text-gray-800" value="">Tester</option>
-            </select>
+            <input
+              type="text"
+              name="seniority"
+              id="job-form-field-seniority"
+              class="text-white mb-2 p-2 rounded border-2 cursor-pointer focus:border-blue-600 focus:outline-none border-none backdrop-grayscale-0 bg-white/10"
+            />
+
+            <label
+              for="job-form-field-category"
+              class="mb-1 text-lg font-medium text-white"
+              >Categoria</label
+            >
+            <input
+              type="text"
+              name="category"
+              id="job-form-field-category"
+              class="text-white mb-2 p-2 rounded border-2 cursor-pointer focus:border-blue-600 focus:outline-none border-none backdrop-grayscale-0 bg-white/10"
+            />
+            <input
+              type="text"
+              name="id"
+              id="job-form-field-id"
+              class="hidden"
+            />
           </div>
+
           <div class="text-center">
             <button
               class="hover:text-xl w-32 mr-2 h-12 text-white text-lg bg-[#4daaf2] hover:bg-blue-600 drop-shadow-2xl rounded-full m-auto"
+              id="submit-job-form"
               type="submit"
-              id="submit"
             >
               Submit
             </button>
           </div>
         </form>
       </section>
-
-      <section class="w-full bg-white" id="cardsSecundary">
-        <div class="flex flex-col m-auto mb-24">
-          <div class="h-80 flex py-16 items-center bg-slate-200">
-            <div class="w-96 ml-32">
-              <img
-                src="/assets/photo.avif"
-                alt="card-long-1"
-                class="w-full rounded-lg"
-              />
-            </div>
-            <p class="py-8 pl-8 w-1/2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus, officiis? Possimus, deserunt quo repudiandae
-              necessitatibus hic architecto dolores suscipit! Id officiis
-              blanditiis ipsa cupiditate perspiciatis ex neque sed maiores quo.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consectetur, aliquam. Corporis reprehenderit laborum blanditiis
-              assumenda quis esse magni sint nostrum, fugit soluta unde eos
-              deserunt minus. Eligendi exercitationem officia reprehenderit.
-            </p>
-          </div>
-
-          <div
-            class="h-80 flex py-16 items-center flex-row-reverse bg-slate-400"
-          >
-            <div class="w-96 mr-32">
-              <img
-                src="/assets/photo-grupal.avif"
-                alt="card-long-4"
-                class="w-full rounded-lg"
-              />
-            </div>
-            <p class="py-8 pr-8 w-1/2 text-right">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus, officiis? Possimus, deserunt quo repudiandae
-              necessitatibus hic architecto dolores suscipit! Id officiis
-              blanditiis ipsa cupiditate perspiciatis ex neque sed maiores quo.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consectetur, aliquam. Corporis reprehenderit laborum blanditiis
-              assumenda quis esse magni sint nostrum, fugit soluta unde eos
-              deserunt minus. Eligendi exercitationem officia reprehenderit.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- footer -->
     <footer
-      class="bg-[#2e3858] fixed bottom-0 drop-shadow-2xl drop-shadow-2xl w-full text-xl text-gray-800"
+      class="bg-[#2e3858] mt-10 drop-shadow-2xl drop-shadow-2xl w-full text-xl text-gray-800"
     >
       <div class="flex flex-col justify-center text-white items-center p-4">
         <p>Diseñado y desarrollado por una estudiante de Ada</p>
