@@ -39,6 +39,8 @@ const filtersIds = {
 const navItemIds = {
   home: "#nav-home",
   create: "#nav-create-job",
+  homeMobile: "#nav-homeMobile",
+  createMobile: "#nav-create-jobMobile",
 };
 
 const formIds = {
@@ -164,8 +166,8 @@ const showEdit = () => {
   hideElement(sectionHero);
   hideElement(sectionFilters);
   hideElement(sectionList);
+  hideElement(sectionDetail);
 
-  showElement(sectionDetail);
   showElement(sectionJobForm);
 };
 
@@ -174,8 +176,8 @@ const showDetail = () => {
   hideElement(loadingIndicator);
   hideElement(sectionHero);
   hideElement(sectionFilters);
-  hideElement(sectionList);
   hideElement(sectionJobForm);
+  hideElement(sectionList);
 
   showElement(sectionDetail);
 };
@@ -215,19 +217,20 @@ const jobListItem = (job) => {
   const { id, name, description, location, category, seniority } = job;
 
   return `
-<div class="flex flex-col p-4 w-60 bg-slate-200 drop-shadow-lg hover:scale-105">
-  <div class="text-gray-900 font-bold text-xl mb-2">${name}</div>
-    <p class="text-sm mt-2">${description}</p>
-    
-    <div class="text-white items-center mt-4">
-        <p class="inline-block bg-blue-900 rounded px-3 py-1 text-sm  mr-2 mb-2">${location}</p>
-        <p class="inline-block bg-blue-900 rounded px-3 py-1 text-sm  mr-2 mb-2">${category}</p>
-        <p class="inline-block bg-blue-900 rounded px-3 py-1 text-sm  mr-2 mb-2">${seniority}</p>
-    </div>
+<div class="flex flex-col justify-center items-center p-4 w-60 bg-slate-200 drop-shadow-lg hover:scale-105 ">
+   <div class="text-gray-900 font-bold text-lg mb-2">${name}</div>
+      <p class="text-sm mt-2">${description}</p>
+      
+      <div class="text-white flex flex-wrap justify-center items-center mt-4 ">
+          <p class="inline-block bg-blue-900 rounded px-3 py-1 text-sm  mr-2 mb-2">${location}</p>
+          <p class="inline-block bg-blue-900 rounded px-3 py-1 text-sm  mr-2 mb-2">${category}</p>
+          <p class="inline-block bg-blue-900 rounded px-3 py-1 text-sm  mr-2 mb-2">${seniority}</p>
+      </div>
 
-    <button onclick="renderDetails(${id})" class="px-6 m-1 w-auto h-8 text-white  bg-[#4daaf2] hover:bg-blue-600  rounded-full btn-detail">
-     Ver Detalles
-    </button>
+      <button onclick="renderDetails(${id})" class="px-6 m-1 w-auto h-8 text-white  bg-[#4daaf2] hover:bg-blue-600  rounded-full btn-detail">
+      Ver Detalles
+      </button>
+    </div>
 </div>
 `;
 };
@@ -509,5 +512,22 @@ $(filtersIds.clear).addEventListener("click", onClearFilters);
 $(navItemIds.home).addEventListener("click", showHome);
 $(navItemIds.create).addEventListener("click", showCreate);
 
+// Listen to navigation mobile
+$(navItemIds.homeMobile).addEventListener("click", showHome);
+$(navItemIds.createMobile).addEventListener("click", showCreate);
+
 // Listen to the form submit event
 jobForm.addEventListener("submit", onSubmit);
+
+//  Listen to the nav mobile button click event
+$("#burguerMobile").addEventListener("click", () => {
+  $("#mobile-nav-bar").classList.remove("hidden");
+  $("#crussMobile").classList.remove("hidden");
+  $("#burguerMobile").classList.add("hidden");
+});
+
+$("#crussMobile").addEventListener("click", () => {
+  $("#mobile-nav-bar").classList.add("hidden");
+  $("#crussMobile").classList.add("hidden");
+  $("#burguerMobile").classList.remove("hidden");
+});
